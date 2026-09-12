@@ -129,7 +129,7 @@ Uses keyword-based retrieval to identify exact or highly relevant terms.
 Hybrid Retrieval
 
 Combines both approaches to improve retrieval quality.
-
+```text
                 User Query
                     │
           ┌─────────┴─────────┐
@@ -139,6 +139,7 @@ Combines both approaches to improve retrieval quality.
           └─────────┬─────────┘
                     ↓
              Hybrid Results
+```
 
 This provides a better balance between:
 
