@@ -8,7 +8,7 @@
 
 An intelligent document question-answering system that uses Retrieval-Augmented Generation (RAG) to understand and answer questions from PDF documents with context-aware responses.
 
-📌 Overview
+## 📌 Overview
 
 AI PDF RAG Chatbot is a document intelligence application that allows users to upload PDF documents and interact with them using natural language.
 
