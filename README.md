@@ -345,6 +345,8 @@ VS Code
 Postman
 
 ## 📂 Project Structure
+
+```text
 AI-PDF-RAG-Chatbot/
 │
 ├── data/
@@ -373,7 +375,6 @@ AI-PDF-RAG-Chatbot/
 │   └── tools.py
 │
 ├── DocLayout-YOLO/
-│
 ├── ragflow-frontend/
 │
 ├── tests/
@@ -388,6 +389,7 @@ AI-PDF-RAG-Chatbot/
 ├── chroma_db_manifest.json
 ├── .gitignore
 └── README.md
+```
 
 ## ⚙️ Local Setup
 ## 1. Clone the repository
