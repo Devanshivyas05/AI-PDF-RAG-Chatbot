@@ -47,8 +47,7 @@ The project follows a modular Retrieval-Augmented Generation (RAG) architecture,
 - Built an interactive document-chat interface using Streamlit.
 - Added query and latency monitoring capabilities using MySQL.
   
-🚀 Why RAG?
-
+## 🚀 Why RAG?
 Large Language Models can generate impressive answers, but they do not automatically know the contents of a user's private documents.
 
 This project solves that problem using Retrieval-Augmented Generation.
@@ -81,8 +80,9 @@ Grounded Answer
 
 This approach helps the chatbot provide answers based on the actual contents of the uploaded documents.
 
-✨ Key Features
-📄 1. PDF Document Processing
+## ✨ Key Features
+
+## 📄 1. PDF Document Processing
 
 The system can process PDF documents and extract their contents for downstream retrieval.
 
@@ -94,7 +94,7 @@ Text cleaning
 Intelligent chunking
 Document metadata handling
 
-🧠 2. Semantic Embeddings
+## 🧠 2. Semantic Embeddings
 
 Document chunks are converted into vector representations using:
 
@@ -112,7 +112,7 @@ Relevant document:
 
 Even when the exact wording differs, semantic retrieval can identify the relevant content.
 
-🔎 3. Hybrid Retrieval
+## 🔎 3. Hybrid Retrieval
 
 One of the important parts of this project is the use of hybrid retrieval.
 
@@ -144,7 +144,7 @@ This provides a better balance between:
 
 meaning-based retrieval + exact keyword matching
 
-🎯 4. Cross-Encoder Reranking
+## 🎯 4. Cross-Encoder Reranking
 
 After retrieving candidate documents, the system uses a cross-encoder to rerank the results.
 
@@ -166,7 +166,7 @@ Top Relevant Passages
        ↓
       LLM
       
-🤖 5. LLM-Based Answer Generation
+## 🤖 5. LLM-Based Answer Generation
 
 The retrieved document context is passed to an LLM to generate the final response.
 
@@ -174,7 +174,7 @@ The system is designed so that the LLM works with retrieved document context ins
 
 This makes the application suitable for document-based question answering.
 
-💬 6. Conversation Memory
+## 💬 6. Conversation Memory
 
 The chatbot includes conversation memory so users can ask follow-up questions naturally.
 
@@ -194,7 +194,7 @@ The main types are...
 
 The conversation context allows follow-up queries to remain meaningful.
 
-🖼️ 7. Image & Table Retrieval
+## 🖼️ 7. Image & Table Retrieval
 
 The project goes beyond plain text retrieval.
 
@@ -207,7 +207,7 @@ Document structure analysis
 
 This allows the architecture to be extended toward multimodal document understanding.
 
-📐 8. Document Layout Detection
+## 📐 8. Document Layout Detection
 
 The project integrates DocLayout-YOLO for document layout analysis.
 
@@ -221,13 +221,13 @@ Other structural components
 
 This is particularly useful for PDFs where important information is not represented as simple linear text.
 
-🗄️ 9. Database & Query Monitoring
+## 🗄️ 9. Database & Query Monitoring
 
 The project also contains database components for monitoring application usage and performance.
 
 The system can track information such as:
 
-Metric	                       Description
+## Metric	                       Description
 Query ID	                     Unique query identifier
 User ID	                       User associated with query
 Question	                     User's question
@@ -240,7 +240,7 @@ Created At	                   Query timestamp
 
 These monitoring capabilities provide a foundation for evaluating and improving the system's performance during real-world usage.
 
-🏗️ System Architecture
+## 🏗️ System Architecture
                          ┌─────────────────────┐
                          │       User          │
                          └──────────┬──────────┘
@@ -303,15 +303,15 @@ These monitoring capabilities provide a foundation for evaluating and improving 
         ┌─────────────────────────┐
         │     Final Response      │
         └─────────────────────────┘
-🛠️ Tech Stack
-Programming
+## 🛠️ Tech Stack
+## Programming
 Python
 
-Backend
+## Backend
 FastAPI
 Uvicorn
 
-AI / ML
+## AI / ML
 RAG
 Sentence Transformers
 BAAI/bge-small-en-v1.5
@@ -319,32 +319,32 @@ Cross-Encoder
 DocLayout-YOLO
 LLM API integration
 
-Retrieval
+## Retrieval
 ChromaDB
 BM25
 Semantic Search
 Hybrid Retrieval
 Cross-Encoder Reranking
 
-PDF Processing
+## PDF Processing
 PyMuPDF
 PDF text extraction
 Image extraction
 Document layout analysis
 
-Frontend
+## Frontend
 Streamlit
 
-Database
+## Database
 MySQL
 
-Development
+## Development
 Git
 GitHub
 VS Code
 Postman
 
-📂 Project Structure
+## 📂 Project Structure
 AI-PDF-RAG-Chatbot/
 │
 ├── data/
@@ -389,24 +389,24 @@ AI-PDF-RAG-Chatbot/
 ├── .gitignore
 └── README.md
 
-⚙️ Local Setup
-1. Clone the repository
+## ⚙️ Local Setup
+## 1. Clone the repository
 git clone https://github.com/Devanshivyas05/AI-PDF-RAG-Chatbot.git
 cd AI-PDF-RAG-Chatbot
 
-2. Create a virtual environment
-Windows
+## 2. Create a virtual environment
+## Windows
 python -m venv venv
 venv\Scripts\activate
 
-Linux / macOS
+## Linux / macOS
 python3 -m venv venv
 source venv/bin/activate
 
-3. Install dependencies
+## 3. Install dependencies
 pip install -r requirements.txt
 
-🔐 Environment Configuration
+## 🔐 Environment Configuration
 Create a .env file in the project root.
 
 Example:
@@ -417,8 +417,8 @@ If database functionality is enabled, configure the required MySQL environment v
 
 ⚠️ Security: API keys, passwords, .env files, model weights, generated vector databases, and other sensitive/local artifacts should not be committed to GitHub.
 
-▶️ Running the Application
-Start the FastAPI Backend
+## ▶️ Running the Application
+## Start the FastAPI Backend
 uvicorn api_server:app --reload
 
 The backend will run at:
@@ -429,14 +429,14 @@ Health check:
 
 http://127.0.0.1:8000/health
 
-Start the Streamlit Frontend
+## Start the Streamlit Frontend
 streamlit run app.py
 
 Depending on the selected frontend entry point, the application can also be started using:
 
 streamlit run frontend.py
 
-🧪 Testing
+## 🧪 Testing
 
 Run the test suite:
 
@@ -444,7 +444,7 @@ pytest
 
 The repository contains tests for important components of the RAG pipeline.
 
-📊 Example RAG Workflow
+## 📊 Example RAG Workflow
 
 A typical user interaction follows this process:
 
@@ -474,7 +474,7 @@ A typical user interaction follows this process:
        ↓
 13. Generate final response
     
-💡 Example Use Cases
+## 💡 Example Use Cases
 
 The architecture can be used for:
 
@@ -486,39 +486,40 @@ The architecture can be used for:
 🧾 Technical documentation Q&A
 🏥 Knowledge-base assistants
 💼 Internal company document search
-🎯 Engineering Highlights
+
+## 🎯 Engineering Highlights
 
 This project demonstrates practical implementation of several modern AI engineering concepts:
 
-Retrieval-Augmented Generation
+## Retrieval-Augmented Generation
 
 Building an end-to-end RAG pipeline instead of relying solely on an LLM.
 
-Vector Search
+## Vector Search
 
 Converting documents into embeddings and performing similarity-based retrieval.
 
-Hybrid Search
+## Hybrid Search
 
 Combining semantic retrieval with traditional keyword-based BM25 retrieval.
 
-Reranking
+## Reranking
 
 Using a cross-encoder to improve the relevance of retrieved context.
 
-Modular Architecture
+## Modular Architecture
 
 Separating PDF processing, embeddings, retrieval, reranking, LLM interaction, memory, and database operations into dedicated modules.
 
-API Architecture
+## API Architecture
 
 Using FastAPI to expose the backend functionality through APIs.
 
-Observability
+## Observability
 
 Tracking retrieval and generation latency to understand application performance.
 
-🚧 Current Limitations
+## 🚧 Current Limitations
 
 The current implementation is primarily designed as an internship/project-level RAG system.
 
@@ -529,7 +530,8 @@ MySQL configuration
 Vector database persistence
 Document layout model weights
 CPU/GPU availability
-🚀 Future Improvements
+
+## 🚀 Future Improvements
 
 Planned improvements include:
 
@@ -544,22 +546,22 @@ Planned improvements include:
  Asynchronous document processing
  Support for additional document formats
  
-📸 Screenshots
+## 📸 Screenshots
 
 Screenshots of the application will be added here after deployment.
 
-🎥 Demo
+## 🎥 Demo
 
 Live Demo: Coming soon
 
 
-👩‍💻 Author
+## 👩‍💻 Author
 Devanshi Vyas
 
 GitHub:
 https://github.com/Devanshivyas05
 
-⭐ Project Summary
+## ⭐ Project Summary
 
 AI PDF RAG Chatbot demonstrates how modern Generative AI can be combined with traditional information retrieval techniques to build practical document intelligence applications.
 
@@ -591,6 +593,6 @@ MySQL
 
 to create an end-to-end AI-powered document question-answering system.
 
-⭐ Built With
+## ⭐ Built With
 
 Python • RAG • FastAPI • ChromaDB • Streamlit • Sentence Transformers • BM25 • Cross-Encoder • MySQL • Generative AI.
