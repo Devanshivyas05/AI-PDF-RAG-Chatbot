@@ -1,0 +1,74 @@
+# ==============================
+# Python virtual environments
+# ==============================
+venv/
+.venv/
+env/
+
+# ==============================
+# Python cache files
+# ==============================
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyo
+
+# ==============================
+# Testing / development cache
+# ==============================
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# ==============================
+# Environment variables / secrets
+# ==============================
+.env
+.env.*
+!.env.example
+
+# ==============================
+# IDE / editor files
+# ==============================
+.vscode/
+.idea/
+
+# ==============================
+# OS generated files
+# ==============================
+.DS_Store
+Thumbs.db
+
+# ==============================
+# Generated PDF processing data
+# ==============================
+extracted_images/
+page_images/
+cropped_figures/
+chroma_db/
+
+# ==============================
+# Generated model / cache files
+# ==============================
+processed_chunks.pkl
+*.pt
+*.bin
+*.safetensors
+
+# ==============================
+# DocLayout-YOLO generated/cache
+# ==============================
+DocLayout-YOLO/**/__pycache__/
+DocLayout-YOLO/*.pyc
+DocLayout-YOLO/**/*.pyc
+DocLayout-YOLO/doclayout_yolo.egg-info/
+DocLayout-YOLO/runs/
+DocLayout-YOLO/weights/
+
+# ==============================
+# Logs
+# ==============================
+*.log
+# Generated project structure listing
+structure.txt
