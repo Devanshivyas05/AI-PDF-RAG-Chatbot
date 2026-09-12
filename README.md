@@ -20,20 +20,19 @@ The system retrieves the most relevant information from the uploaded documents a
 
 The project follows a modular Retrieval-Augmented Generation (RAG) architecture, combining:
 
-📄 PDF processing
-✂️ Intelligent text chunking
-🧠 Embedding generation
-🔎 Semantic search
-🔤 BM25 keyword retrieval
-🔀 Hybrid retrieval
-🎯 Cross-encoder reranking
-🤖 LLM-based generation
-💬 Conversation memory
-🖼️ Image retrieval
-📊 Table retrieval
-📐 Document layout detection
-🗄️ MySQL-based query monitoring
-
+- 📄 PDF processing
+- ✂️ Intelligent text chunking
+- 🧠 Embedding generation
+- 🔎 Semantic search
+- 🔤 BM25 keyword retrieval
+- 🔀 Hybrid retrieval
+- 🎯 Cross-encoder reranking
+- 🤖 LLM-based generation
+- 💬 Conversation memory
+- 🖼️ Image retrieval
+- 📊 Table retrieval
+- 📐 Document layout detection
+- 🗄️ MySQL-based query monitoring
 ## ⭐ Project Highlights
 
 - Built an end-to-end Retrieval-Augmented Generation (RAG) pipeline for PDF question answering.
@@ -84,7 +83,7 @@ This approach helps the chatbot provide answers based on the actual contents of 
 
 ## ✨ Key Features
 
-## 📄 1. PDF Document Processing
+### 📄 1. PDF Document Processing
 
 The system can process PDF documents and extract their contents for downstream retrieval.
 
@@ -96,7 +95,7 @@ Text cleaning
 Intelligent chunking
 Document metadata handling
 
-## 🧠 2. Semantic Embeddings
+### 🧠 2. Semantic Embeddings
 
 Document chunks are converted into vector representations using:
 
@@ -114,7 +113,7 @@ Relevant document:
 
 Even when the exact wording differs, semantic retrieval can identify the relevant content.
 
-## 🔎 3. Hybrid Retrieval
+### 🔎 3. Hybrid Retrieval
 
 One of the important parts of this project is the use of hybrid retrieval.
 
@@ -147,7 +146,7 @@ This provides a better balance between:
 
 meaning-based retrieval + exact keyword matching
 
-## 🎯 4. Cross-Encoder Reranking
+###  🎯 4. Cross-Encoder Reranking
 
 After retrieving candidate documents, the system uses a cross-encoder to rerank the results.
 
@@ -171,7 +170,7 @@ Top Relevant Passages
       LLM
 ```
       
-## 🤖 5. LLM-Based Answer Generation
+### 🤖 5. LLM-Based Answer Generation
 
 The retrieved document context is passed to an LLM to generate the final response.
 
@@ -179,7 +178,7 @@ The system is designed so that the LLM works with retrieved document context ins
 
 This makes the application suitable for document-based question answering.
 
-## 💬 6. Conversation Memory
+### 💬 6. Conversation Memory
 
 The chatbot includes conversation memory so users can ask follow-up questions naturally.
 
@@ -199,7 +198,7 @@ The main types are...
 
 The conversation context allows follow-up queries to remain meaningful.
 
-## 🖼️ 7. Image & Table Retrieval
+### 🖼️ 7. Image & Table Retrieval
 
 The project goes beyond plain text retrieval.
 
@@ -212,7 +211,7 @@ Document structure analysis
 
 This allows the architecture to be extended toward multimodal document understanding.
 
-## 📐 8. Document Layout Detection
+### 📐 8. Document Layout Detection
 
 The project integrates DocLayout-YOLO for document layout analysis.
 
@@ -226,7 +225,7 @@ Other structural components
 
 This is particularly useful for PDFs where important information is not represented as simple linear text.
 
-## 🗄️ 9. Database & Query Monitoring
+### 🗄️ 9. Database & Query Monitoring
 
 The project also contains database components for monitoring application usage and performance.
 
@@ -247,6 +246,8 @@ The system can track information such as:
 These monitoring capabilities provide a foundation for evaluating and improving the system's performance during real-world usage.
 
 ## 🏗️ System Architecture
+
+```text
                          ┌─────────────────────┐
                          │       User          │
                          └──────────┬──────────┘
@@ -309,15 +310,17 @@ These monitoring capabilities provide a foundation for evaluating and improving 
         ┌─────────────────────────┐
         │     Final Response      │
         └─────────────────────────┘
+```
+
 ## 🛠️ Tech Stack
-## Programming
+### Programming
 Python
 
-## Backend
+### Backend
 FastAPI
 Uvicorn
 
-## AI / ML
+### AI / ML
 RAG
 Sentence Transformers
 BAAI/bge-small-en-v1.5
@@ -325,26 +328,26 @@ Cross-Encoder
 DocLayout-YOLO
 LLM API integration
 
-## Retrieval
+### Retrieval
 ChromaDB
 BM25
 Semantic Search
 Hybrid Retrieval
 Cross-Encoder Reranking
 
-## PDF Processing
+### PDF Processing
 PyMuPDF
 PDF text extraction
 Image extraction
 Document layout analysis
 
-## Frontend
+### Frontend
 Streamlit
 
-## Database
+### Database
 MySQL
 
-## Development
+### Development
 Git
 GitHub
 VS Code
@@ -456,6 +459,7 @@ The repository contains tests for important components of the RAG pipeline.
 
 A typical user interaction follows this process:
 
+```text
 1. Upload PDF
        ↓
 2. Extract document content
@@ -481,49 +485,50 @@ A typical user interaction follows this process:
 12. Send context to LLM
        ↓
 13. Generate final response
+```
     
 ## 💡 Example Use Cases
 
 The architecture can be used for:
 
-📚 Academic document Q&A
-📑 Research paper analysis
-🏢 Enterprise document assistants
-📋 Policy and regulation search
-📖 Study assistants
-🧾 Technical documentation Q&A
-🏥 Knowledge-base assistants
-💼 Internal company document search
+- 📚 Academic document Q&A
+- 📑 Research paper analysis
+- 🏢 Enterprise document assistants
+- 📋 Policy and regulation search
+- 📖 Study assistants
+- 🧾 Technical documentation Q&A
+- 🏥 Knowledge-base assistants
+- 💼 Internal company document search
 
 ## 🎯 Engineering Highlights
 
 This project demonstrates practical implementation of several modern AI engineering concepts:
 
-## Retrieval-Augmented Generation
+### Retrieval-Augmented Generation
 
 Building an end-to-end RAG pipeline instead of relying solely on an LLM.
 
-## Vector Search
+### Vector Search
 
 Converting documents into embeddings and performing similarity-based retrieval.
 
-## Hybrid Search
+### Hybrid Search
 
 Combining semantic retrieval with traditional keyword-based BM25 retrieval.
 
-## Reranking
+### Reranking
 
 Using a cross-encoder to improve the relevance of retrieved context.
 
-## Modular Architecture
+### Modular Architecture
 
 Separating PDF processing, embeddings, retrieval, reranking, LLM interaction, memory, and database operations into dedicated modules.
 
-## API Architecture
+### API Architecture
 
 Using FastAPI to expose the backend functionality through APIs.
 
-## Observability
+### Observability
 
 Tracking retrieval and generation latency to understand application performance.
 
@@ -533,26 +538,26 @@ The current implementation is primarily designed as an internship/project-level 
 
 Some components may require additional configuration depending on the deployment environment, including:
 
-LLM API credentials
-MySQL configuration
-Vector database persistence
-Document layout model weights
-CPU/GPU availability
+- 🔑 LLM API credentials
+- 🗄️ MySQL database configuration
+- 💾 Vector database persistence
+- 📐 Document layout model weights
+- 🖥️ CPU/GPU availability
 
 ## 🚀 Future Improvements
 
 Planned improvements include:
 
- Cloud deployment
- User authentication and authorization
- Multi-user document isolation
- Streaming LLM responses
- Persistent cloud vector database
- Improved multimodal document understanding
- Advanced analytics dashboard
- Better document access control
- Asynchronous document processing
- Support for additional document formats
+- ☁️ Cloud deployment
+- 🔐 User authentication and authorization
+- 👥 Multi-user document isolation
+- ⚡ Streaming LLM responses
+- 💾 Persistent cloud-based vector database
+- 🖼️ Improved multimodal document understanding
+- 📊 Advanced analytics dashboard
+- 🔒 Better document access control
+- 🔄 Asynchronous document processing
+- 📄 Support for additional document formats
  
 ## 📸 Screenshots
 
