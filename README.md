@@ -54,6 +54,7 @@ This project solves that problem using Retrieval-Augmented Generation.
 
 Instead of sending an entire PDF to the LLM, the system:
 
+```text
 PDF
  ↓
 Text Extraction
@@ -77,6 +78,7 @@ Relevant Context
 LLM
  ↓
 Grounded Answer
+```
 
 This approach helps the chatbot provide answers based on the actual contents of the uploaded documents.
 
@@ -155,6 +157,7 @@ cross-encoder/ms-marco-MiniLM-L-6-v2
 
 The reranking stage helps prioritize the passages that are most relevant to the user's question before sending context to the LLM.
 
+```text
 Initial Retrieval
        ↓
 Candidate Passages
@@ -166,6 +169,7 @@ Relevance Scoring
 Top Relevant Passages
        ↓
       LLM
+```
       
 ## 🤖 5. LLM-Based Answer Generation
 
@@ -228,16 +232,17 @@ The project also contains database components for monitoring application usage a
 
 The system can track information such as:
 
-## Metric	                       Description
-Query ID	                     Unique query identifier
-User ID	                       User associated with query
-Question	                     User's question
-Retrieval Latency	             Time taken for retrieval
-Generation Latency	           Time taken by the LLM
-Total Latency                  Complete response time
-Retrieved Chunks	             Number of retrieved chunks
-Status	                       Query execution status
-Created At	                   Query timestamp
+| Metric | Description |
+|---|---|
+| Query ID | Unique query identifier |
+| User ID | User associated with query |
+| Question | User's question |
+| Retrieval Latency | Time taken for retrieval |
+| Generation Latency | Time taken by the LLM |
+| Total Latency | Complete response time |
+| Retrieved Chunks | Number of retrieved chunks |
+| Status | Query execution status |
+| Created At | Query timestamp |
 
 These monitoring capabilities provide a foundation for evaluating and improving the system's performance during real-world usage.
 
