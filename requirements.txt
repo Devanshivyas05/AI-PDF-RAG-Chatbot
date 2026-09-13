@@ -21,3 +21,4 @@ tf-keras
 pymupdf>=1.23.0
 unstructured>=0.10.0
 pdfplumber
+doclayout-yolo
