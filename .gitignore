@@ -72,3 +72,4 @@ DocLayout-YOLO/weights/
 *.log
 # Generated project structure listing
 structure.txt
+chroma_db_manifest.json
