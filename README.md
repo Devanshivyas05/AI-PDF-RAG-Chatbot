@@ -33,6 +33,7 @@ The project follows a modular Retrieval-Augmented Generation (RAG) architecture,
 - 📊 Table retrieval
 - 📐 Document layout detection
 - 🗄️ MySQL-based query monitoring
+  
 ## ⭐ Project Highlights
 
 - Built an end-to-end Retrieval-Augmented Generation (RAG) pipeline for PDF question answering.
@@ -245,6 +246,26 @@ The system can track information such as:
 
 These monitoring capabilities provide a foundation for evaluating and improving the system's performance during real-world usage.
 
+### 💬 10. Chat History & Session Management
+
+Each conversation is assigned a unique session ID, allowing multiple independent chat threads to be tracked and revisited — similar to ChatGPT/Claude's sidebar history.
+
+Users can:
+
+Start a new chat via the "New Chat" button
+View past conversations in the sidebar, titled by their first question
+Reload any past session's full transcript from the database
+
+### ⚡ 11. Processing Cache
+
+PDF processing (parsing, layout detection, OCR, chunking, embedding) is expensive and previously had to run in full on every backend restart. A caching layer now fingerprints the PDFs in data/ (by filename, size, and modified time) and persists processed chunks + the vector store to disk.
+
+If no documents have changed since the last successful run, subsequent backend startups skip reprocessing entirely and complete in seconds instead of tens of minutes. Any addition, removal, or modification of a PDF automatically triggers a fresh reprocessing pass.
+
+### 📊 12. Usage Analytics Dashboard
+
+A dedicated dashboard, accessible as a second page within the Streamlit app, visualizes usage data pulled live from MySQL: queries per day, latency trends, most-queried documents, and per-user activity.
+
 ## 🏗️ System Architecture
 
 ```text
@@ -385,6 +406,9 @@ AI-PDF-RAG-Chatbot/
 │
 ├── DocLayout-YOLO/
 ├── ragflow-frontend/
+│   ├── frontend.py
+│   └── pages/
+│       └── 1_📊_Dashboard.py
 │
 ├── tests/
 │   └── test_pipeline_contract.py
@@ -429,23 +453,51 @@ If database functionality is enabled, configure the required MySQL environment v
 ⚠️ Security: API keys, passwords, .env files, model weights, generated vector databases, and other sensitive/local artifacts should not be committed to GitHub.
 
 ## ▶️ Running the Application
-## Start the FastAPI Backend
-uvicorn api_server:app --reload
 
-The backend will run at:
+### Prerequisites
+Activate the virtual environment before running any command below:
 
-http://127.0.0.1:8000
+```powershell
+cd PDF_Chatbot
+.\venv\Scripts\Activate.ps1
+```
 
-Health check:
+### 1. Start the FastAPI Backend
 
-http://127.0.0.1:8000/health
+```powershell
+$env:DISABLE_OCR = "true"
+python -m uvicorn api_server:app --host 127.0.0.1 --port 8000
+```
 
-## Start the Streamlit Frontend
-streamlit run app.py
+> **Note:** Do not use `--reload` — the RAG pipeline (embeddings, vector store, reranker) is loaded once at startup and is expensive to rebuild. `--reload` will re-trigger this on every file change.
 
-Depending on the selected frontend entry point, the application can also be started using:
+Wait until the terminal shows:
+[API] RAG PIPELINE READY
+The backend will then be available at:
 
-streamlit run frontend.py
+- **API base:** http://127.0.0.1:8000
+- **Health check:** http://127.0.0.1:8000/health
+
+On first run, PDF processing (parsing, layout detection, chunking, embedding) may take significant time depending on document size and page count. Subsequent restarts are near-instant, since processed data is cached to disk and only rebuilt if the PDFs in `data/` change.
+
+`DISABLE_OCR=true` skips OCR text extraction from figures/tables. This is the recommended setting for stable operation.
+
+### 2. Start the Streamlit Frontend
+
+In a **separate terminal**, once the backend shows `RAG PIPELINE READY`:
+
+```powershell
+cd PDF_Chatbot
+.\venv\Scripts\Activate.ps1
+$env:DISABLE_OCR = "true"
+python -m streamlit run ragflow-frontend\frontend.py
+```
+
+The application will open automatically at:
+
+- **Frontend:** http://localhost:8504
+
+A usage analytics dashboard is available as a second page within the same Streamlit app (Dashboard tab in the navigation).
 
 ## 🧪 Testing
 
